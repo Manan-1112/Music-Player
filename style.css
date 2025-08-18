@@ -1,0 +1,103 @@
+body{
+    background-color: black;
+}
+.navbar{
+    display: flex;
+    position: fixed;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+    z-index: 1000;
+}
+.bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bar img{
+    padding-right: 15px;
+}
+.search{
+    display: flex;
+    width: 450px;
+    height: 50px;
+    position: relative;
+}
+.search img{
+    position: absolute;
+    height: 60px;
+    width: 100px;
+    filter: invert(1);
+    padding-left: 5px;
+}
+.box{
+    margin-right: 50px;
+    height: 50px;
+    width: 600px;
+    border: 0px;
+    border-radius: 25px;
+    background-color: rgb(49, 48, 48);
+}
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(179, 179, 179);
+    font-weight: 700;
+    font-family: SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, "MS Gothic";
+    font-size: 16px;
+}
+.about img{
+    height: 35px;
+    width: 35px;
+    padding-right: 15px;
+}
+.login{
+    height: 50px;
+    border-radius: 22px;
+    width: 100px;
+    font-family:SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, "MS Gothic" ;
+    font-size: 18px;
+    font-weight: 600;
+}
+.main{
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    top: 70px;
+    
+
+}
+.left{
+    border-radius: 15px;
+    background-color:rgb(28, 28, 28);
+    display: flex;
+    height: 850px;
+    width: 450px;
+    color: white;
+    font-size: 8px;
+    font-family: SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, "MS Gothic";
+    font-weight: 600;
+    gap: 300px;
+    flex-direction: column;
+    
+}
+.right{
+    background-color: rgb(28, 28, 28);
+    display: flex;
+    height: 850px;
+    border-radius: 20px;
+    width: 800px;
+
+}
+
+
+.legal{
+    display: grid;
+    grid-template-columns: auto auto;
+    position: relative;
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
