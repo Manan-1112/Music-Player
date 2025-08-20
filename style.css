@@ -47,7 +47,13 @@ body{
     font-family: SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, "MS Gothic";
     font-size: 16px;
     cursor: pointer;
+    transition: 0.3s ease, 0.3s ease;
 }
+.about:hover {
+  color: white; 
+  font-size: 18px; 
+}
+
 .about img{
     height: 35px;
     width: 35px;
@@ -84,13 +90,25 @@ body{
     flex-direction: column;
     
 }
+.left h1{
+    padding-left: 25px;
+}
 .right{
     background-color: rgb(28, 28, 28);
     display: flex;
+    flex-direction: column;
     height: 850px;
     border-radius: 20px;
     width: 800px;
+    color: white;
+    font-size: 11px;
+    font-family: SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, "MS Gothic";
+    font-weight: 600;
 
+}
+.right h1{
+    padding-left: 25px;
+    height: 20px;
 }
 .scroll{
     display: flex;
@@ -116,7 +134,7 @@ body{
     scroll-snap-align: start;
     font-family: SpotifyMixUI, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic ProN", Meiryo, "MS Gothic";
 }
-.boxes :nth-child(1){
+.boxes :nth-child(1) , .box2{
     padding: 5px 0px 4px 10px;
 }
 .boxes :nth-child(2){
@@ -129,6 +147,7 @@ body{
     margin-left: 17px;
     height: 35px;
     width: 200px;
+    font-size: 18px;
 }
 .legal{
     display: grid;
@@ -138,4 +157,20 @@ body{
 a{
     text-decoration: none;
     color: grey;
+}
+.songs{
+    position: relative;
+}
+.card{
+    position: absolute;
+    left: 25px;
+}
+.card img{
+    height: 150px;
+    border-radius: 6px;
+
+}
+.card p{
+    font-weight: 100;
+    color: rgb(168, 168, 168);
 }
