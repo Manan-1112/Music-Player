@@ -174,3 +174,21 @@ a{
     font-weight: 100;
     color: rgb(168, 168, 168);
 }
+.playbar{
+    background-color: rgb(206, 249, 209);
+    height: 50px;
+    position: absolute;
+    top: 435px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.playbar img{
+    height: 30px;
+
+}
+#pause{
+    display: none;
+}
