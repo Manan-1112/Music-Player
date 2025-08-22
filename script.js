@@ -1,3 +1,4 @@
+
 async function getSongs() {
     let song = await fetch("http://127.0.0.1:3000/songs/")
     let response = await song.text()
@@ -22,28 +23,40 @@ async function main() {
     let element = document.querySelector(".card");
     console.log(element)
 
-        element.addEventListener("click", function () {
-            
-            let pause=document.getElementById("pause")
-            let play=document.getElementById("play")
-            let isPlaying=false
-            
-            
-            if(!isPlaying || audio.paused){
-                audio.play()
-                play.style.display="none"
-                pause.style.display="inline"
-                isPlaying=true
-                
-            }
-            else{
-                audio.pause()
-                play.style.display="inline"
-                pause.style.display="none"
-                isPlaying=false
-            }
-            audio.currentTime = 0;
+    element.addEventListener("click", function () {
+
+        let pause = document.getElementById("pause")
+        let play = document.getElementById("play")
+
+        if (audio.paused) {
+            audio.play()
+            play.style.display = "none"
+            pause.style.display = "inline"
+
+        }
+        else {
+            audio.pause()
+            play.style.display = "inline"
+            pause.style.display = "none"
+        }
+
+    });
+    let card=document.querySelectorAll('.card')
+    console.log(card)
+    card.forEach(poster => {
+        let playBtn = poster.querySelector('.play-popup');
+
+        poster.addEventListener('mouseenter', () => {
+            playBtn.style.display = 'block';
+            playBtn.addEventListener("click", () => {
+                playBtn.style.display = 'none'
+
+            });
         });
+        poster.addEventListener('mouseleave', () => {
+            playBtn.style.display = 'none';
+        });
+    });
 
 
 }
