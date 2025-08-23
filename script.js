@@ -16,48 +16,66 @@ async function getSongs() {
 
 }
 async function main() {
-    let songs = await getSongs()
-    console.log(songs)
-    let audio = new Audio(songs[3]);
+    let songs = await getSongs();
+    let audio = new Audio();
+    let cards = document.querySelectorAll('.card');
+    let currind = null;
+    let play=document.getElementById('play')
+    let pause=document.getElementById('pause')
+    play.addEventListener('click',()=>{
+        audio.play();
+        play.style.display='none';
+        pause.style.display='block';
+    })
+    pause.addEventListener('click',()=>{
+        audio.pause();
+        play.style.display='block';
+        pause.style.display='none';
+    })
+    cards.forEach(card => {
+        let index = card.getAttribute('data-index');
+        let playBtn = card.querySelector('.play-popup');
+        let pauseBtn = card.querySelector('.pause-popup');
+        let poster =card.querySelector('.poster')
+        playBtn.addEventListener('click', () => {
+            if (currind != index) {
+                audio.pause();
+                audio.src = songs[index];
+                currind = index
+            }
+            audio.play();
 
-    let element = document.querySelector(".card");
-    console.log(element)
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'block';
+            play.style.display='none';
+            pause.style.display='block';
 
-    element.addEventListener("click", function () {
+        });
 
-        let pause = document.getElementById("pause")
-        let play = document.getElementById("play")
+        pauseBtn.addEventListener('click', () => {
+            audio.pause();
+            pauseBtn.style.display = 'none';
+            playBtn.style.display = 'inline';
+            play.style.display='block';
+            pause.style.display='none';
+        });
 
-        if (audio.paused) {
-            audio.play()
-            play.style.display = "none"
-            pause.style.display = "inline"
 
-        }
-        else {
-            audio.pause()
-            play.style.display = "inline"
-            pause.style.display = "none"
-        }
+        audio.onended = () => {
+            playBtn.style.display = 'inline';
+            pauseBtn.style.display = 'none';
+        };
 
-    });
-    let card=document.querySelectorAll('.card')
-    console.log(card)
-    card.forEach(poster => {
-        let playBtn = poster.querySelector('.play-popup');
 
         poster.addEventListener('mouseenter', () => {
-            playBtn.style.display = 'block';
-            playBtn.addEventListener("click", () => {
-                playBtn.style.display = 'none'
-
-            });
+            playBtn.style.display = 'block'; 
         });
+
         poster.addEventListener('mouseleave', () => {
             playBtn.style.display = 'none';
+            pauseBtn.style.display='none'
         });
     });
-
 
 }
 main()
