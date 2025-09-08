@@ -1,114 +1,114 @@
 function decode(track){
-    let name=track
-    name=name.replace("http://127.0.0.1:3000/songs/","");
-    name=name.replaceAll("%20"," ")
-    name=name.replace(".mp3","")
-    return name
-
+    let name = track;
+    name = name.replace("https://spotify-backend-58wa.onrender.com/songs/", "");
+    name = decodeURIComponent(name.replace(".mp3", ""));
+    return name;
 }
-function formatTime(seconds) {
-    const totalSeconds = Math.floor(seconds); // convert float to int
 
+function formatTime(seconds) {
+    const totalSeconds = Math.floor(seconds);
     const mins = Math.floor(totalSeconds / 60);
     const secs = totalSeconds % 60;
-
-    const formattedMins = String(mins).padStart(2, '0');
-    const formattedSecs = String(secs).padStart(2, '0');
-
-    return `${formattedMins}:${formattedSecs}`;
+    return `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
 }
+
 async function getSongs() {
-    let song = await fetch("http://127.0.0.1:3000/songs/")
-    let response = await song.text()
-    let div = document.createElement("div")
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a")
-    let songs = []
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".mp3")) {
-            songs.push(element.href)
-        }
+    try {
+        // Use your backend directly if it has CORS enabled
+        let response = await fetch("https://spotify-backend-58wa.onrender.com/api/songs");
+        if (!response.ok) throw new Error("Network response was not ok");
+        let songs = await response.json();
+        const baseUrl = "https://spotify-backend-58wa.onrender.com";
+        return songs.map(song => baseUrl + song);
+    } catch (err) {
+        console.error("Failed to fetch songs:", err);
+        return [];
     }
-    return songs
-
 }
+
 async function main() {
-    
     let songs = await getSongs();
+    if(songs.length === 0) {
+        alert("Could not load songs. Check console for errors.");
+        return;
+    }
+
     let audio = new Audio();
     let cards = document.querySelectorAll('.card');
     let currind = null;
-    let play = document.getElementById('play')
-    let pause = document.getElementById('pause')
-    play.addEventListener('click', () => {
+
+    const playBtnGlobal = document.getElementById('play');
+    const pauseBtnGlobal = document.getElementById('pause');
+
+    playBtnGlobal.addEventListener('click', () => {
         audio.play();
-        play.style.display = 'none';
-        pause.style.display = 'block';
-    })
-    pause.addEventListener('click', () => {
+        playBtnGlobal.style.display = 'none';
+        pauseBtnGlobal.style.display = 'block';
+    });
+
+    pauseBtnGlobal.addEventListener('click', () => {
         audio.pause();
-        play.style.display = 'block';
-        pause.style.display = 'none';
-    })
-    cards.forEach(card => {
-        let index = card.getAttribute('data-index');
+        playBtnGlobal.style.display = 'block';
+        pauseBtnGlobal.style.display = 'none';
+    });
+
+    audio.addEventListener("timeupdate", () => {
+        if (audio.duration) {
+            document.querySelector(".songtime").innerHTML = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+            let circle = document.querySelector(".circle");
+            circle.style.left = ((audio.currentTime / audio.duration) * 100) + '%';
+        }
+    });
+
+    document.querySelector(".seekbar").addEventListener("click", (e) => {
+        let rect = e.target.getBoundingClientRect();
+        let percent = (e.offsetX / rect.width) * 100;
+        audio.currentTime = (audio.duration * percent) / 100;
+        document.querySelector(".circle").style.left = percent + '%';
+    });
+
+    cards.forEach((card, idx) => {
         let playBtn = card.querySelector('.play-popup');
         let pauseBtn = card.querySelector('.pause-popup');
-        audio.addEventListener("timeupdate",()=>{
-                let t=formatTime(audio.currentTime)
-                let tt=formatTime(audio.duration)
-                document.querySelector(".songtime").innerHTML=`${t} / ${tt}`
-                document.querySelector(".circle").style.left=((audio.currentTime/audio.duration)*100)+'%'
-                document.querySelector(".seekbar").addEventListener("click",(e)=>{
-                    let precent=(e.offsetX/e.target.getBoundingClientRect().width)*100
-                    document.querySelector(".circle").style.left=precent+'%'
-                    audio.currentTime=(audio.duration*precent)/100
-        })
-        })
-        
+
         playBtn.addEventListener('click', () => {
-            if (currind != index) {
+            if(currind !== idx){
                 audio.pause();
-                audio.src = songs[index];
-                currind = index
+                audio.src = songs[idx];
+                currind = idx;
             }
             audio.play();
-            let currsong = ""
-            currsong = songs[index]
-            document.querySelector(".songinfo").innerHTML = decode(currsong)  
+            document.querySelector(".songinfo").innerHTML = decode(songs[idx]);
             playBtn.style.display = 'none';
             pauseBtn.style.display = 'block';
-            play.style.display = 'none';
-            pause.style.display = 'block';
-
+            playBtnGlobal.style.display = 'none';
+            pauseBtnGlobal.style.display = 'block';
         });
-        
+
         pauseBtn.addEventListener('click', () => {
             audio.pause();
             pauseBtn.style.display = 'none';
             playBtn.style.display = 'inline';
-            play.style.display = 'block';
-            pause.style.display = 'none';
+            playBtnGlobal.style.display = 'block';
+            pauseBtnGlobal.style.display = 'none';
         });
-
 
         audio.onended = () => {
             playBtn.style.display = 'inline';
             pauseBtn.style.display = 'none';
+            playBtnGlobal.style.display = 'block';
+            pauseBtnGlobal.style.display = 'none';
         };
 
-
         card.addEventListener('mouseenter', () => {
-            playBtn.style.display = 'block';
+            if(currind !== idx) playBtn.style.display = 'block';
         });
 
         card.addEventListener('mouseleave', () => {
-            playBtn.style.display = 'none';
-            pauseBtn.style.display = 'none'
+            if(currind !== idx) playBtn.style.display = 'none';
+            pauseBtn.style.display = 'none';
         });
     });
-    
-
 }
-main()
+
+main();
