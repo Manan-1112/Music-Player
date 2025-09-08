@@ -34,6 +34,7 @@ async function getSongs() {
 
 }
 async function main() {
+    
     let songs = await getSongs();
     let audio = new Audio();
     let cards = document.querySelectorAll('.card');
@@ -107,7 +108,7 @@ async function main() {
             pauseBtn.style.display = 'none'
         });
     });
-
+    
 
 }
 main()

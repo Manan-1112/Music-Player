@@ -78,7 +78,8 @@ body{
 }
 .left{
     border-radius: 15px;
-    background-color:rgb(28, 28, 28);
+    position: relative;
+    background-color:rgb(19, 19, 19);
     display: flex;
     height: 850px;
     width: 450px;
@@ -96,6 +97,7 @@ body{
 .right{
     background-color: rgb(28, 28, 28);
     display: flex;
+    position: relative;
     flex-direction: column;
     height: 850px;
     border-radius: 20px;
@@ -269,4 +271,46 @@ a{
     width: 15px;
     transition: 0.5s ease;
     cursor: pointer;
+}
+.ham{
+    display: none;
+}
+@media (max-width: 768px){
+    .ham{
+        display: block;
+    }
+    .home{
+        display: none;
+    }
+    .left{
+        left: -550px;
+    }
+    .right{
+        right: 440px;
+        width: 380px;
+    }
+    .playbar{
+        width: 380px;
+    }
+    .navbar ,.bar{
+        height: 40px;
+    }
+    .card{
+        height: 180px;
+        width: 100px;
+    }
+    .search{
+        width: 120px;
+    }
+    .about{
+        display: none;
+    }
+    .login{
+        height: 40px;
+        margin-left: 40px;
+    }
+    .playbar{
+        bottom:75px;
+        top: unset;
+    }
 }
