@@ -287,10 +287,11 @@ a{
     }
     .right{
         right: 440px;
-        width: 380px;
+        width: 340px;
+        height: 600px;
     }
     .playbar{
-        width: 380px;
+        width: 340px;
     }
     .navbar ,.bar{
         height: 40px;
@@ -307,6 +308,7 @@ a{
     }
     .login{
         height: 40px;
+        width: 60px;
         margin-left: 40px;
     }
     .playbar{
