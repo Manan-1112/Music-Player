@@ -123,6 +123,12 @@ body{
     border-radius: 12px;
 
 }
+.disclaimer{
+        font-weight: 100;
+        color: red;
+        font-style: italic;
+        font-size: 13px;
+    }
 
 .boxes{
     height: 120px;
@@ -286,12 +292,12 @@ a{
         left: -550px;
     }
     .right{
-        right: 440px;
-        width: 340px;
+        right: 455px;
+        width: 320px;
         height: 600px;
     }
     .playbar{
-        width: 340px;
+        width: 320px;
     }
     .navbar ,.bar{
         height: 40px;
@@ -314,5 +320,11 @@ a{
     .playbar{
         bottom:75px;
         top: unset;
+    }
+    .disclaimer{
+        font-weight: 100;
+        color: red;
+        font-style: italic;
+        font-size: 13px;
     }
 }
