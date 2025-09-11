@@ -14,7 +14,6 @@ function formatTime(seconds) {
 
 async function getSongs() {
     try {
-        // Use your backend directly if it has CORS enabled
         let response = await fetch("https://spotify-backend-58wa.onrender.com/api/songs");
         if (!response.ok) throw new Error("Network response was not ok");
         let songs = await response.json();
@@ -25,6 +24,16 @@ async function getSongs() {
         return [];
     }
 }
+
+  document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(() => {
+        document.querySelector(".loader").style.display = "none";
+        document.querySelector(".content").style.display = "block";
+        localStorage.setItem("visited", "true"); // mark as visited
+      }, 6000); // 6 sec
+  });
+
+
 
 async function main() {
     let songs = await getSongs();
@@ -39,6 +48,13 @@ async function main() {
 
     const playBtnGlobal = document.getElementById('play');
     const pauseBtnGlobal = document.getElementById('pause');
+    let hamburger=document.querySelector('#ham');
+    hamburger.addEventListener("click",()=>{
+       let leftpart= document.querySelector(".left");
+       let rightpart=document.querySelector(".right")
+       leftpart.classList.toggle("leftham")
+       rightpart.classList.toggle("rightToggle");
+    })
 
     playBtnGlobal.addEventListener('click', () => {
         audio.play();

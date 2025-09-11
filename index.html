@@ -8,125 +8,191 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <nav class="navbar">
-      <!-- Because of phishing and copyright issues Logo is removed -->
-      <!-- <img src="logo_icons/logo.svg" class="logo" alt="logo" /> -->
-      <div class="bar">
-        <img src="logo_icons/home.svg" alt="" height="28px" class="home" />
-        <img src="logo_icons/hamburger-svgrepo-com.svg" height="40px" class="ham"  alt="">
-        <div class="search">
-          <input
-            type="text"
-            class="box"
-            placeholder="         What do you want to play?"
+  <div class="loader">
+      <span class="bar1"></span>
+      <span class="bar1"></span>
+      <span class="bar1"></span>
+  </div>
+    <div class="content">
+      <nav class="navbar">
+        <!-- Because of phishing and copyright issues Logo is removed -->
+        <!-- <img src="logo_icons/logo.svg" class="logo" alt="logo" /> -->
+        <div class="bar">
+          <img src="logo_icons/home.svg" alt="" height="28px" class="home" />
+          <img
+            src="logo_icons/hamburger-svgrepo-com.svg"
+            height="40px"
+            id="ham"
+            alt=""
           />
-          <img src="logo_icons/search.svg" alt="img" />
+          <div class="search">
+            <input
+              type="text"
+              class="box"
+              placeholder="         What do you want to play?"
+            />
+            <img src="logo_icons/search.svg" alt="img" />
+          </div>
         </div>
-      </div>
-      <div class="about">Premium</div>
-      <div class="about">Support</div>
-      <div class="about">Download</div>
-      <div class="about">
-        <img src="logo_icons/install.svg" alt="" />
-        Install App
-      </div>
-      <div class="about">Sign Up</div>
-      <button class="login">Log in</button>
-    </nav>
+        <div class="about">Premium</div>
+        <div class="about">Support</div>
+        <div class="about">Download</div>
+        <div class="about">
+          <img src="logo_icons/install.svg" alt="" />
+          Install App
+        </div>
+        <div class="about">Sign Up</div>
+        <button class="login">Log in</button>
+      </nav>
 
-    <div class="main">
-      <div class="left">
-        <h1>Your Library</h1>
-        <div class="scroll">
-          <div class="boxes">
-            <span>Lorem ipsum dolor sit.</span>
-            <span>Lorem ipsum dolor sit amet.</span>
-            <button class="login">Create playlist</button>
+      <div class="main">
+        <div class="left">
+          <h1>Your Library</h1>
+          <div class="scroll">
+            <div class="boxes">
+              <span>Lorem ipsum dolor sit.</span>
+              <span>Lorem ipsum dolor sit amet.</span>
+              <button class="login">Create playlist</button>
+            </div>
+            <div class="boxes">
+              <span>Lorem, ipsum dolor sit amet consectetur adipisicing.</span>
+              <span>Lorem ipsum dolor sit amet consectetur.</span>
+              <button class="login">Browse podcasts</button>
+            </div>
           </div>
-          <div class="boxes">
-            <span>Lorem, ipsum dolor sit amet consectetur adipisicing.</span>
-            <span>Lorem ipsum dolor sit amet consectetur.</span>
-            <button class="login">Browse podcasts</button>
-            
-          </div>
-        </div>
-        <div class="legal">
-          <div>
-            <a href="#">Legal</a>
-          </div>
-          <div>
-            <a href="#"
-              >Safety & Privacy Center</a
-            >
-          </div>
-          <div>
-            <a href="#"
-              >Privacy Policy</a
-            >
-          </div>
-          <div>
-            <a href="#"
-              >Cookies</a
-            >
-          </div>
-          <div>
-            <a href="#"
-              >About Ads</a
-            >
-          </div>
-          <div>
-            <a href="#"
-              >Accessibility</a
-            >
+          <div class="legal">
+            <div>
+              <a href="#">Legal</a>
+            </div>
+            <div>
+              <a href="#">Safety & Privacy Center</a>
+            </div>
+            <div>
+              <a href="#">Privacy Policy</a>
+            </div>
+            <div>
+              <a href="#">Cookies</a>
+            </div>
+            <div>
+              <a href="#">About Ads</a>
+            </div>
+            <div>
+              <a href="#">Accessibility</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="right">
-        <h1>Trending songs</h1>
-        <div class="songs">
-          <div class="card" data-index="0">
-            <img class="poster" src="https://c.saavncdn.com/740/Admirin-You-feat-Preston-Pablo-Punjabi-2023-20230730053753-500x500.jpg" alt="img">
-            <img class="play-popup" src="logo_icons/playPopup.png"  alt="">
-            <img class="pause-popup" style="filter: invert(53%) sepia(61%) saturate(499%) hue-rotate(79deg) brightness(108%) contrast(85%);"  srcset="https://img.icons8.com/?size=50&amp;id=36268&amp;format=png 1x, https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x" width="50" height="50" alt="Pause Button icon">
-            <h2 class="song-title">Admirin' You</h2>
-            <p class="song-title">Karan Aujla</p>
+        <div class="right">
+          <h1>Trending songs</h1>
+          <div class="songs">
+            <div class="card" data-index="0">
+              <img
+                class="poster"
+                src="https://c.saavncdn.com/740/Admirin-You-feat-Preston-Pablo-Punjabi-2023-20230730053753-500x500.jpg"
+                alt="img"
+              />
+              <img class="play-popup" src="logo_icons/playPopup.png" alt="" />
+              <img
+                class="pause-popup"
+                style="
+                  filter: invert(53%) sepia(61%) saturate(499%)
+                    hue-rotate(79deg) brightness(108%) contrast(85%);
+                "
+                srcset="
+                  https://img.icons8.com/?size=50&amp;id=36268&amp;format=png  1x,
+                  https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x
+                "
+                width="50"
+                height="50"
+                alt="Pause Button icon"
+              />
+              <h2 class="song-title">Admirin' You</h2>
+              <p class="song-title">Karan Aujla</p>
+            </div>
+            <div class="card" data-index="1">
+              <img
+                class="poster"
+                src="https://c.saavncdn.com/541/High-On-You-Punjabi-2024-20241211183544-500x500.jpg"
+                alt="img"
+              />
+              <img class="play-popup" src="logo_icons/playPopup.png" alt="" />
+              <img
+                class="pause-popup"
+                style="
+                  filter: invert(53%) sepia(61%) saturate(499%)
+                    hue-rotate(79deg) brightness(108%) contrast(85%);
+                "
+                srcset="
+                  https://img.icons8.com/?size=50&amp;id=36268&amp;format=png  1x,
+                  https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x
+                "
+                width="50"
+                height="50"
+                alt="Pause Button icon"
+              />
+              <h2 class="song-title">High On You</h2>
+              <p class="song-title">Jind Universe</p>
+            </div>
+            <div class="card" data-index="2">
+              <img
+                class="poster"
+                src="https://c.saavncdn.com/140/Sahiba-Hindi-2023-20231213191015-500x500.jpg"
+                alt="img"
+              />
+              <img class="play-popup" src="logo_icons/playPopup.png" alt="" />
+              <img
+                class="pause-popup"
+                style="
+                  filter: invert(53%) sepia(61%) saturate(499%)
+                    hue-rotate(79deg) brightness(108%) contrast(85%);
+                "
+                srcset="
+                  https://img.icons8.com/?size=50&amp;id=36268&amp;format=png  1x,
+                  https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x
+                "
+                width="50"
+                height="50"
+                alt="Pause Button icon"
+              />
+              <h2 class="song-title">Sahiba</h2>
+              <p class="song-title">Aditya Rikhari</p>
+            </div>
+            <div class="card" data-index="3">
+              <img
+                class="poster"
+                src="https://c.saavncdn.com/587/Thodi-Si-Daaru-Punjabi-2025-20250717063530-500x500.jpg"
+                alt="img"
+              />
+              <img class="play-popup" src="logo_icons/playPopup.png" alt="" />
+              <img
+                class="pause-popup"
+                style="
+                  filter: invert(53%) sepia(61%) saturate(499%)
+                    hue-rotate(79deg) brightness(108%) contrast(85%);
+                "
+                srcset="
+                  https://img.icons8.com/?size=50&amp;id=36268&amp;format=png  1x,
+                  https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x
+                "
+                width="50"
+                height="50"
+                alt="Pause Button icon"
+              />
+              <h2 class="song-title">Thodi Si Daru</h2>
+              <p class="song-title">AP Dhillon , Shreya Ghoshal</p>
+            </div>
           </div>
-          <div class="card" data-index="1">
-            <img class="poster" src="https://c.saavncdn.com/541/High-On-You-Punjabi-2024-20241211183544-500x500.jpg" alt="img">
-            <img class="play-popup" src="logo_icons/playPopup.png"  alt="">
-            <img class="pause-popup" style="filter: invert(53%) sepia(61%) saturate(499%) hue-rotate(79deg) brightness(108%) contrast(85%);"  srcset="https://img.icons8.com/?size=50&amp;id=36268&amp;format=png 1x, https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x" width="50" height="50" alt="Pause Button icon">
-            <h2 class="song-title">High On You</h2>
-            <p class="song-title">Jind Universe</p>
+          <div class="disclaimer">
+            **This is a student project for learning purpose only.The design and
+            content are used solely for educational demonstartion.
           </div>
-          <div class="card" data-index="2">
-            <img class="poster" src="https://c.saavncdn.com/140/Sahiba-Hindi-2023-20231213191015-500x500.jpg" alt="img">
-            <img class="play-popup" src="logo_icons/playPopup.png"  alt="">
-            <img class="pause-popup" style="filter: invert(53%) sepia(61%) saturate(499%) hue-rotate(79deg) brightness(108%) contrast(85%);"  srcset="https://img.icons8.com/?size=50&amp;id=36268&amp;format=png 1x, https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x" width="50" height="50" alt="Pause Button icon">
-            <h2 class="song-title">Sahiba</h2>
-            <p class="song-title">Aditya Rikhari</p>
-          </div>
-          <div class="card" data-index="3">
-            <img class="poster" src="https://c.saavncdn.com/587/Thodi-Si-Daaru-Punjabi-2025-20250717063530-500x500.jpg" alt="img">
-            <img class="play-popup" src="logo_icons/playPopup.png"  alt="">
-            <img class="pause-popup" style="filter: invert(53%) sepia(61%) saturate(499%) hue-rotate(79deg) brightness(108%) contrast(85%);"  srcset="https://img.icons8.com/?size=50&amp;id=36268&amp;format=png 1x, https://img.icons8.com/?size=100&amp;id=36268&amp;format=png 2x" width="50" height="50" alt="Pause Button icon">
-            <h2 class="song-title">Thodi Si Daru</h2>
-            <p class="song-title">AP Dhillon , Shreya Ghoshal</p>
-          </div>
-        </div>
-        <div class="disclaimer">
-          **This is a student project for learning purpose only.The design and content are used solely for educational demonstartion. 
-        </div>
-        <div class="playbar">
-          <div class="songinfo">--:--
-          </div>
-          <img src="logo_icons/play.svg" id="play"alt="">
-          <img src="logo_icons/pause.svg" id="pause" alt="">
-          <div class="songtime">
-            00:00
-          </div>
-          <div class="seekbar">
-            <div class="circle"></div>
-
+          <div class="playbar">
+            <div class="songinfo">--:--</div>
+            <img src="logo_icons/play.svg" id="play" alt="" />
+            <img src="logo_icons/pause.svg" id="pause" alt="" />
+            <div class="songtime">00:00</div>
+            <div class="seekbar">
+              <div class="circle"></div>
+            </div>
           </div>
         </div>
       </div>
